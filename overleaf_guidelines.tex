@@ -12,6 +12,8 @@
 \newcommand{\german}[1]{{\color{red}#1$^{de}$}}
 \newcommand{\french}[1]{{\color{red}#1$^{fr}$}}
 
+\newcommand{\highlight}[1]{{\color{blue}#1}}
+
 
 % The first line doesn't show \orig, \dd, \dcom
 %\newcommand{\orig}[1]{}
@@ -30,8 +32,8 @@
 
 \newcommand{\discuss}[1]{{\color{green}{Discuss: #1}}}
 \newcommand{\oa}[1]{{\color{blue}{OA: #1}}}
-%\newcommand{\nss}[1]{{\color{magenta}{NSS: #1}}}
-\newcommand{\nss}[1]{}
+\newcommand{\nss}[1]{{\color{magenta}{NSS: #1}}}
+%\newcommand{\nss}[1]{}
 \newcommand{\todo}[1]{\footnote{\bf TODO: \color{blue}{#1}}}
 \newcommand{\rem}[1]{{(\it #1})}
 
@@ -43,7 +45,6 @@
 
 \title{UCCA's Foundational Layer:  Annotation Guidelines v2\\
 \url{http://www.cs.huji.ac.il/~oabend/ucca.html}}
-
 \begin{document}
 \maketitle
 \tableofcontents
@@ -56,7 +57,7 @@
 \begin{enumerate}
 
 \item
-  \hl{A UCCA annotation task} consists of the annotation of multiple sentences, usually a 
+  A UCCA annotation task consists of the annotation of multiple sentences, usually a 
   paragraph or several paragraphs long.
   When you receive a task, take a few minutes to read the entire text, in order to 
   understand the context.
@@ -436,7 +437,7 @@ Note that a complete Scene that refers to the ground (with As and Ds etc.)\ shou
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Relations that Appear in All Models}
+\subsection*{Categories that Appear in All Models}
 
 There are three types of categories that may appear anywhere in the text: Functions (F), Relators (R) and Quantifiers (Q).
 
@@ -445,7 +446,7 @@ There are three types of categories that may appear anywhere in the text: Functi
 \begin{enumerate}
 
 \item 
-Relators are relations that relate between two or more entities within Scene units as well as non-Scene units. Rs in English are usually prepositions (see Section \ref{sec:relators} below for a more elaborate discussion).  
+Relators are relations that relate between two or more entities within Scene units as well as non-Scene units. Rs in English are usually prepositions (see Section \ref{sec:relators} below for a more elaborate discussion).
 
 \begin{itemize}
     \item
@@ -476,10 +477,15 @@ By convention, we place the Rs in non-Scene units as siblings of the Es, Qs and 
   
     \item
 	When will we not use Relators?: 
-  - To link between Parallel Scenes (for that see Linkers). 
-  - To connect between Centers that have the same parent unit and carry a similar type or role (for that see Connectors). 
+    \begin{itemize}
+    \item 
+    To link between Parallel Scenes (for that see Linkers). 
+    \item
+    To connect between Centers that have the same parent unit and carry a similar type or role (for that see Connectors). 
+    \end{itemize}
 
 \end{itemize}
+
 
 
 
@@ -585,7 +591,6 @@ By convention, we place the Rs in non-Scene units as siblings of the Es, Qs and 
 \end{itemize}
 
 \end{enumerate}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Remote and Implicit Units}
@@ -797,7 +802,7 @@ In some languages, clauses can completely lack verbs (e.g., Hebrew), while in ot
 \end{itemize}
 
 
-\item
+\item {\label{seem}}
 Verbs of perception and sense: verbs such as seem/look/appear/sound/feel are often used without specifying the experiencer of the feeling/perception. In these cases they should be treated as a G. In case where the experiencer is stated, they should be a separate Scene.
 
 \begin{itemize}
@@ -1052,9 +1057,9 @@ Any unit that relates to a certain quality of the main event in a Scene should b
 
 \begin {itemize}
 \item
-``We had an amazing$_D$ [test drive]$_P$!``
+``We had an amazing$_D$ [test drive]$_P$ ! ``
 \item
-``He ran$_P$ amazingly$_D$!``
+``He ran$_P$ amazingly$_D$ ! ``
 \end {itemize}`
 
 \item
@@ -1065,11 +1070,11 @@ Any unit that describes a certain quality of a concrete entity in a Scene should
 \end {itemize}
 
 \item
-Any unit that expresses the speaker's attitude toward the event, but doesn’t directly describe a certain quality of the P/S should be marked G:
+Any unit that expresses the speaker's attitude toward the event, but doesn't directly describe a certain quality of the P/S should be marked G:
 
 \begin{itemize}
 \item 
-``Amazingly$_G$, we had an excellent time`` (We would have had the same excellent time even if the speaker wasn’t amazed)
+``Amazingly$_G$, we had an excellent time`` (We would have had the same excellent time even if the speaker wasn't amazed)
 \item
 ``Surprisingly$_G$ he went there``
 \item
@@ -1275,7 +1280,7 @@ Resultatives:
 ``[He$_A$ eats$_P$]$_H$ like$_L$ [a horse \rem{eats}$_P$]$_H$''
 \ee
 
-An exception would be when the verb does not evoke a Scene of its own (e.g. ``looks'', ``seems''. See section \ref {sec:seem} above) and is therefore considered a G. Then the whole phrase should be marked as one Scene:
+An exception would be when the verb does not evoke a Scene of its own (e.g. ``looks'', ``seems''. For elaboration on these verbs, see chapter \ref {sec:copula_verbless} section \ref{seem}) and is therefore considered a G. Then the whole phrase should be marked as one Scene:
 \be
 \item
 ``He$_A$ looks$_G$ like$_F$ [a horse]$_S$''
@@ -1676,9 +1681,9 @@ but have a somewhat different form (they don't have a clear Center). Their inter
 \paragraph{Comparatives/Superlatives.} Comparatives/superlatives generally evoke a static Scene. If the domain of application is explicitly mentioned (namely the set of entities the comparison applies to), it should be marked as a participant.
 \be
 \item
-``[Jordan]$_A$ was$_F$ better$_S$ [than$_R$ James$_C$]''
+``[Jordan]$_A$ was$_F$ better$_S$ [than$_R$ James$_C$]$_A$''
 \item
-``[Jordan]$_A$ was$_F$ [more$_E$ beautiful$_C$]$_S$ [than$_R$ James$_C$]''
+``[Jordan]$_A$ was$_F$ [more$_E$ beautiful$_C$]$_S$ [than$_R$ James$_C$]$_A$''
 \item
 ``[China]$_A$ is$_F$ [the$_E$ greatest$_C$]$_S$''
 \item
@@ -1854,11 +1859,7 @@ Some secondary verbs introduce another role beside the roles of the main verb. A
 
 \paragraph{Punctuation.} Not annotated in the current layer of UCCA (even commas).
 
-\dd {\paragraph {Utterances}
-
-\begin{enumerate}
-\item 
-Interjections: short emotional utterances referring to the preceding or following text should be marked G:
+\dd {\paragraph {Interjections.} short emotional utterances referring to the preceding or following text should be marked G:
 
 \begin{itemize}
 \item 
@@ -1870,7 +1871,7 @@ Interjections: short emotional utterances referring to the preceding or followin
 \item
 ``[Great$_G$ !  I$_A$ just$_T$ missed$_P$ [my ride back home]$_A$]$_H$``
 \item
-``[Great$_G$ ! I$_A$ ’m$_F$ so$_D$ happy$_S$]$_H$``
+``[Great$_G$ ! I$_A$ 'm$_F$ so$_D$ happy$_S$]$_H$``
   \end{itemize}
 
 An exception to this would be when an adjective utterance implicitly refers to a specific place, or a specific P/S (instead of generally expressing emotion regarding a certain Scene as a whole). Then instead of Ground it should be analyzed as a Scene of itself: 
@@ -1880,8 +1881,7 @@ A: ``[Fantastic ! $_S$ (cake)$_A$]$_H$``
 
 * since "cake" is explicitly mentioned in the nearby text, we add it as Remote, but in cases where the missing unit doesn't appear, we add an Implicit A and the adjective utterance should be S. e.g when a restaurant review opens with: "Great ! ", it probably means "great restaurant" but since "restaurant" is implicit, we annotate it: [``Great ! ``$_S$, (IMP)$_A$]$_H$
 
-\item
-Utterances that don't carry significant meaning should be marked F. 
+\paragraph{Fillers/Discourse Markers.} When fillers (e.g., ``oh'', ``well'') or discourse markers don't convey a meaning dimension that can be captured by UCCA's foundational layer, they should be marked as F. That is, if they are not (part of) Scenes, (part of) Scene elements or Linkers, they are Fs.
 
 \begin{itemize}
 \item 
@@ -1891,12 +1891,10 @@ Utterances that don't carry significant meaning should be marked F.
 \item
 ``well$_F$, this can pose a problem``
 \item
-``I'm like$_F$ really tense because of this``
-\item
 ``So$_F$, this is what we're going to do:``
 \end{itemize}
 
-\end{enumerate}}
+}
 
 
 \paragraph{Linkers with a single argument.}
