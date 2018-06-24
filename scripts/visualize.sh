@@ -9,7 +9,7 @@ git checkout -b sentences origin/${BRANCH}-sentences
 BRANCH=${BRANCH}-images
 
 pip install 'ucca[visualize]'
-python -m scripts.visualize *.pickle -o . || exit 1
+python -m scripts.visualize $1*.pickle -o . || exit 1
 git checkout -b $BRANCH origin/$BRANCH || git checkout --orphan $BRANCH
 git reset
 git add *.png
