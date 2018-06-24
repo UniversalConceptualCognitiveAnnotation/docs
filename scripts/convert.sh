@@ -10,7 +10,7 @@ git checkout -b sentences origin/${BRANCH}-sentences
 BRANCH=${BRANCH}-$FORMAT
 
 pip install -U 'semstr[amr]'
-python -m semstr.convert *.pickle -o . -f $FORMAT || exit 1
+python -m semstr.convert *.pickle -o . -f $FORMAT --no-wikification --default-label="label" || exit 1
 git checkout -b $BRANCH origin/$BRANCH || git checkout --orphan $BRANCH
 git reset
 git add *.$FORMAT
