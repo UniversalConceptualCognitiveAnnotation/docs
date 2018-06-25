@@ -6,7 +6,10 @@ BRANCH=`git rev-parse --abbrev-ref HEAD`
 BRANCH=${BRANCH}-sentences
 
 python -m scripts.standard_to_sentences xml -o . -b || exit 1
-git checkout -b $BRANCH origin/$BRANCH || git checkout --orphan $BRANCH
-git reset
+git fetch origin $BRANCH
+if ! git checkout -b $BRANCH origin/$BRANCH; then
+  git checkout --orphan $BRANCH
+  git reset
+fi
 git add *.pickle
 
