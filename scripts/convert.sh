@@ -10,12 +10,13 @@ git checkout -b ${BRANCH}-sentences origin/${BRANCH}-sentences
 BRANCH=${BRANCH}-$FORMAT
 
 pip install -U 'semstr[amr]'
-python -m semstr.convert *.pickle -o . -f $FORMAT --no-wikification --default-label="label" || exit 1
-git fetch origin $BRANCH
-if ! git checkout -b $BRANCH origin/$BRANCH; then
-  git checkout --orphan $BRANCH
-  git reset
-fi
+mkdir tmp
+python -m semstr.convert *.pickle -o tmp -f $FORMAT --no-wikification --default-label="label" || exit 1
+git checkout --orphan $BRANCH
+git reset
+git pull origin $BRANCH
+mv -f tmp/* ./
+rmdir tmp
 if [ $FORMAT == amr ]; then
   git add *.txt
 else

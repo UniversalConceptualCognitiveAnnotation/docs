@@ -9,11 +9,12 @@ git checkout -b ${BRANCH}-sentences origin/${BRANCH}-sentences
 BRANCH=${BRANCH}-images
 
 pip install 'ucca[visualize]'
-python -m scripts.visualize $1*.pickle -o . || exit 1
-git fetch origin $BRANCH
-if ! git checkout -b $BRANCH origin/$BRANCH; then
-  git checkout --orphan $BRANCH
-  git reset
-fi
+mkdir tmp
+python -m scripts.visualize $1*.pickle -o tmp || exit 1
+git checkout --orphan $BRANCH
+git reset
+git pull origin $BRANCH
+mv -f tmp/* ./
+rmdir tmp
 git add *.png
 

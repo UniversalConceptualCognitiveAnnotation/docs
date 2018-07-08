@@ -8,11 +8,12 @@ git fetch origin ${BRANCH}-sentences
 git checkout -b ${BRANCH}-sentences origin/${BRANCH}-sentences
 BRANCH=${BRANCH}-sentences-xml
 
-python -m scripts.pickle_to_standard *.pickle -o . || exit 1
-git fetch origin $BRANCH
-if ! git checkout -b $BRANCH origin/$BRANCH; then
-  git checkout --orphan $BRANCH
-  git reset
-fi
+mkdir tmp
+python -m scripts.pickle_to_standard *.pickle -o tmp || exit 1
+git checkout --orphan $BRANCH
+git reset
+git pull origin $BRANCH
+mv -f tmp/* ./
+rmdir tmp
 git add *.xml
 
