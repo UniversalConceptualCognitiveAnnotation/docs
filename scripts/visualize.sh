@@ -10,7 +10,7 @@ BRANCH=${BRANCH}-images
 
 pip install 'ucca[visualize]'
 mkdir tmp
-python -m scripts.visualize $1*.pickle -o tmp || exit 1
+python -m scripts.visualize --node-ids $1*.pickle -o tmp || exit 1
 git checkout --orphan $BRANCH
 git reset
 git pull origin $BRANCH
