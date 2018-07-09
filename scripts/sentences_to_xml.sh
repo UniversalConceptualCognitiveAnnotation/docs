@@ -13,6 +13,7 @@ python -m scripts.pickle_to_standard *.pickle -o tmp || exit 1
 git checkout --orphan $BRANCH
 git reset
 git pull origin $BRANCH
+rm -f *.*
 mv -f tmp/* ./
 rmdir tmp
 git add *.xml

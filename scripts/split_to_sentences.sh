@@ -10,6 +10,7 @@ python -m scripts.standard_to_sentences xml -o tmp -b || exit 1
 git checkout --orphan $BRANCH
 git reset
 git pull origin $BRANCH
+rm -f *.*
 mv -f tmp/* ./
 rmdir tmp
 git add *.pickle
