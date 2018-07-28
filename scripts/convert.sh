@@ -11,7 +11,7 @@ BRANCH=${BRANCH}-$FORMAT
 
 pip install -U 'semstr[amr]'
 mkdir tmp
-python -m semstr.convert *.pickle -o tmp -f $FORMAT --no-wikification --default-label="label" || exit 1
+python -m semstr.convert $2*.pickle -o tmp -f $FORMAT --no-wikification --default-label="label" || exit 1
 git checkout --orphan $BRANCH
 git reset
 git pull origin $BRANCH
