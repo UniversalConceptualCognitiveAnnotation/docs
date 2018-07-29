@@ -7,5 +7,5 @@ git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
 git fetch origin ${BRANCH}-sentences
 git checkout -b ${BRANCH}-sentences origin/${BRANCH}-sentences
 
-python -m scripts.validate *.pickle || echo Ignoring validation failures
+python -m scripts.validate *.pickle $* || echo Ignoring validation failures
 
