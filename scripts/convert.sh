@@ -15,7 +15,7 @@ python -m semstr.convert $2*.pickle -o tmp -f $FORMAT --no-wikification --defaul
 git checkout --orphan $BRANCH
 git reset
 git pull origin $BRANCH
-rm -f *.*
+rm -f $2*.*
 mv -f tmp/* ./
 rmdir tmp
 if [ $FORMAT == amr ]; then

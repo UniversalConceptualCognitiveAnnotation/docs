@@ -14,7 +14,7 @@ python -m scripts.visualize --node-ids $1*.pickle -o tmp || exit 1
 git checkout --orphan $BRANCH
 git reset
 git pull origin $BRANCH
-rm -f *.*
+rm -f $1*.*
 mv -f tmp/* ./
 rmdir tmp
 git add *.png
