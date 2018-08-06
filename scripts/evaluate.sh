@@ -20,7 +20,11 @@ if [ $FORMAT == amr ]; then
   FORMAT=txt
 fi
 mkdir converted
-mv $2*.$FORMAT converted
+if [ $FORMAT == site ]; then
+  python -m scripts.site_to_standard $2*.xml -o converted || exit 1
+else
+  mv $2*.$FORMAT converted
+fi
 rm -f *.*
 python -m semstr.evaluate converted sentences || exit 1
 
