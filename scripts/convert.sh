@@ -17,7 +17,7 @@ else
   python -m semstr.convert $2*.pickle -o tmp -f $FORMAT --no-wikification --default-label="label" || exit 1
 fi
 git checkout --orphan $BRANCH
-git reset
+git reset -q
 git pull origin $BRANCH
 rm -f $2*.*
 mv -f tmp/* ./

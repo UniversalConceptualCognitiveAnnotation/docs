@@ -10,7 +10,7 @@ git checkout -b ${BRANCH}-sentences origin/${BRANCH}-sentences
 mkdir sentences
 mv $2*.pickle sentences
 rm -f *.*
-git reset
+git reset -q
 BRANCH=${BRANCH}-$FORMAT
 git fetch origin ${BRANCH}
 git checkout -b ${BRANCH} origin/${BRANCH}

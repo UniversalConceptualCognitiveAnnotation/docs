@@ -11,7 +11,7 @@ BRANCH=${BRANCH}-sentences-xml
 mkdir tmp
 python -m scripts.pickle_to_standard *.pickle -o tmp || exit 1
 git checkout --orphan $BRANCH
-git reset
+git reset -q
 git pull origin $BRANCH
 rm -f *.*
 mv -f tmp/* ./

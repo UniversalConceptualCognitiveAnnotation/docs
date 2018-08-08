@@ -12,7 +12,7 @@ pip install 'ucca[visualize]'
 mkdir tmp
 python -m scripts.visualize --node-ids $1*.pickle -o tmp || exit 1
 git checkout --orphan $BRANCH
-git reset
+git reset -q
 git pull origin $BRANCH
 rm -f $1*.*
 mv -f tmp/* ./
