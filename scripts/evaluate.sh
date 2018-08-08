@@ -27,4 +27,5 @@ else
 fi
 rm -f *.*
 python -m semstr.evaluate converted sentences || exit 1
+git reset --hard -q
 
