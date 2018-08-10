@@ -5,13 +5,19 @@ BRANCH=`git rev-parse --abbrev-ref HEAD`
 [ $TRAVIS_PULL_REQUEST == false ] || BRANCH=pr-$TRAVIS_PULL_REQUEST
 BRANCH=${BRANCH}-sentences
 
-mkdir tmp
-python -m scripts.standard_to_sentences xml -o tmp -b || exit 1
+if [ $# -lt 1 ]; then
+  TEMP_DIR=tmp
+  mkdir $TEMP_DIR
+  python -m scripts.standard_to_sentences xml -o $TEMP_DIR -b || exit 1
+else
+  TEMP_DIR=$1
+  [ -d $TEMP_DIR ] || exit 1
+fi
 git checkout --orphan $BRANCH
 git reset -q
 git pull origin $BRANCH
 rm -f *.*
-mv -f tmp/* ./
-rmdir tmp
+mv -f $TEMP_DIR/* ./
+rmdir $TEMP_DIR
 git add *.pickle
 
