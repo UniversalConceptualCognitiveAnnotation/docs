@@ -11,5 +11,6 @@ git remote set-url origin $URL > /dev/null 2>&1
 
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 [ $BRANCH == HEAD ] && BRANCH=$TRAVIS_BRANCH
+git pull --quiet --rebase origin $BRANCH
 git push --quiet --set-upstream origin $BRANCH
 
