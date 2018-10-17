@@ -19,7 +19,7 @@ done
 git checkout --orphan $BRANCH
 git reset -q
 git pull origin $BRANCH
-rm -f $1*.*
+rm -f *.*
 mv -f tmp/* ./
 rmdir tmp
 git add *.svg
