@@ -3,8 +3,8 @@
 git config --global user.email "travis@travis-ci.org"
 git config --global user.name "Travis CI"
 
-UCCA_VERSION=$(pip freeze | grep -i ucca | head -1)
-git commit -qam "Travis build $TRAVIS_BUILD_NUMBER, $UCCA_VERSION" || exit 1
+VERSION=$(pip freeze | grep -ie ucca -e semstr)
+git commit -qam "Travis build $TRAVIS_BUILD_NUMBER, $VERSION" || exit 1
 
 URL=`git remote get-url origin | sed "s/github\.com/${GH_TOKEN}@github.com/"`
 git remote set-url origin $URL > /dev/null 2>&1
