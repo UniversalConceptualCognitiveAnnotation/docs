@@ -10,12 +10,17 @@ BRANCH=${BRANCH}-images
 
 pip install 'ucca[visualize]'
 mkdir tmp
-python -m scripts.visualize --node-ids $1*.pickle -o tmp || exit 1
+python -m scripts.visualize --format svg --node-ids $1*.pickle -o tmp || exit 1
+pip install scour
+for f in tmp/*.svg; do
+  scour -i $f -o $f.tmp --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none
+  mv $f.tmp $f -f
+done
 git checkout --orphan $BRANCH
 git reset -q
 git pull origin $BRANCH
 rm -f $1*.*
 mv -f tmp/* ./
 rmdir tmp
-git add *.png
+git add *.svg
 
