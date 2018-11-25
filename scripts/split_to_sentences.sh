@@ -1,4 +1,4 @@
-#!/bin/base
+#!/bin/bash
 
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 [ $BRANCH == HEAD ] && BRANCH=$TRAVIS_BRANCH
