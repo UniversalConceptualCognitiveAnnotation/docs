@@ -9,5 +9,6 @@ git checkout -b ${BRANCH}-sentences origin/${BRANCH}-sentences
 
 pip install tupa
 export SPACY_MODEL=en_core_web_sm
+python -m spacy download $SPACY_MODEL
 python -m tupa -t *.pickle -I 1 -c noop -v $*
 
