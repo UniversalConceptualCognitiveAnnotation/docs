@@ -8,6 +8,7 @@ git fetch origin ${BRANCH}-sentences
 git checkout -b ${BRANCH}-sentences origin/${BRANCH}-sentences
 BRANCH=${BRANCH}-images
 
+pip install kiwisolver==1.2.0
 pip install 'ucca[visualize]'
 mkdir tmp
 python -m scripts.visualize --format svg --node-ids $1*.pickle -o tmp || exit 1
