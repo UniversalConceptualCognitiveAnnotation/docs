@@ -1,10 +1,10 @@
-UCCA-Annotated <LANGUAGE> Corpus
+UCCA-Annotated \<LANGUAGE\> Corpus
 ============================
-Version <NUMBER> (<DATE>)
+Version \<NUMBER\> (\<DATE\>)
 --------------------------
 
-This bundle contains <NUMBER> passages annotated according to the foundational layer of UCCA.
-The total number of tokens in this corpus is <NUMBER>.
+This bundle contains \<NUMBER\> passages annotated according to the foundational layer of UCCA.
+The total number of tokens in this corpus is \<NUMBER\>.
 
 Corpus:
 -------
