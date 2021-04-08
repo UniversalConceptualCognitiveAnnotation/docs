@@ -31,5 +31,5 @@ Note that before uploading WSJ passages, you need to replace the tokens with und
 
 5) An automatic validation report is generated upon any change made to a repository. Make sure your data passed validation and that there are no errors. Validation reports can be found [here](https://travis-ci.org/github/UniversalConceptualCognitiveAnnotation).
 
-6) Make sure that the details in the repository’s README are updated. If you are creating a readme from scratch, you can use [this template](https://github.com/UniversalConceptualCognitiveAnnotation/docs/blob/master/README_template). 
+6) Make sure that the details in the repository’s README are updated. If you are creating a readme from scratch, you can use [this template](https://github.com/UniversalConceptualCognitiveAnnotation/docs/blob/master/README_template.md). 
 
