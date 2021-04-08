@@ -10,12 +10,10 @@ Corpus:
 -------
 WRITE HERE A DESCRIPTION OF THE CORPUS
 
-
 Format and Source Code:
 ----------------------
 Information about the format of the xml files and source code for reading and manipulating them are
 available at https://universalconceptualcognitiveannotation.github.io
-
 
 Citation:
 ---------
@@ -24,7 +22,6 @@ The annotation was conducted at the Hebrew University of Jerusalem. If you use t
 ```
 REFER TO THE RELEVANT PAPER
 ```
-
 Licensing:
 ----------
 The UCCA annotation is distributed under the 
